@@ -24,6 +24,7 @@ export const mutations = {
     },
     setDetallesProducto(state, payload) {
         state.detallesProducto = payload
+
     }
 }
 
@@ -50,7 +51,7 @@ export const actions = {
                     return commit('setProductos', res.data.results)
                 })
 
-        }else{
+        } else {
             await axios.get(`http://localhost:8000/api/v1.0/productos/?page=${state.pagina}&categoria=${state.categoria}`)
                 .then(res => {
                     return commit('setProductos', res.data.results)
@@ -64,12 +65,13 @@ export const actions = {
         await axios.get(`http://localhost:8000/api/v1.0/productos/?categoria=${state.categoria}`)
             .then(res => {
                 state.paginas = Math.ceil(res.data.count / state.porPagina)
+                console.log(res.data.results)
                 return commit('setProductos', res.data.results)
             })
     },
 
-    async getDetallesProducto({ commit }, payload) { 
-        const detalles = []      
+    async getDetallesProducto({ commit }, payload) {
+        const detalles = []
         await axios.get(`http://localhost:8000/api/v1.0/productos/${payload}`)
             .then(res => {
                 detalles.push(res.data)

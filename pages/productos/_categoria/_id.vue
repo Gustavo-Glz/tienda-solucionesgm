@@ -14,11 +14,9 @@ export default {
     this.id = parseInt(this.$route.params.id)
     this.getDetallesProducto(this.id)
   },
-
   methods: {
     ...mapActions(['getDetallesProducto']),
   },
-
   computed: {
     ...mapState(['detallesProducto'])
   }

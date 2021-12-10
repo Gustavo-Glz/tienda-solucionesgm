@@ -2,7 +2,7 @@
   <v-container fluid>
     <div
       v-for="(
-        {id, nombre, descripcion, detalles, categoria, precio, imagen }) in detallesProducto"
+        { id, nombre, descripcion, detalles, categoria, precio, imagen }) in detallesProducto"
       :key="id"
     >
       <v-chip label class="ma-2" color="primary">
