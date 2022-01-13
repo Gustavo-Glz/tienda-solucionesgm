@@ -11,7 +11,7 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: "Contact page"
+          content: "Contacto"
         }
       ]
     }

@@ -12,7 +12,7 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: "Products page"
+          content: "Productos"
         }
       ]
     }
