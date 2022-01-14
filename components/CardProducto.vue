@@ -5,10 +5,10 @@
         cols="12"
         sm="6"
         md="3"
-        v-for="({id, nombre, imagen, precio, categoria }, index) in productos"
+        v-for="({codigo, nombre, imagen, precio, categoria }, index) in productos"
         :key="index"
       >
-        <v-card class="d-flex flex-column mb-10" elevation="0" height="330" hover link :to=" 'productos/' + categoria.toLowerCase() + '/' + id">
+        <v-card class="d-flex flex-column mb-10" elevation="0" height="330" hover link :to=" 'productos/' + categoria.toLowerCase() + '/' + codigo">
           <v-img class="mx-auto" :src="imagen" width="180" contain></v-img>
           <v-card-text class="text-body-2 text-justify black--text py-0"
             >{{ nombre }}

@@ -1,5 +1,5 @@
 <template>
-  <v-footer color="grey darken-1" padless dark height="290">
+  <v-footer color="#2c3e50" padless dark height="290">
     <v-container fluid>
       <v-row>
         <v-col cols="12" sm="6" md="4">

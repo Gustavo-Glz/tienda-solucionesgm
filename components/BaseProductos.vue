@@ -9,7 +9,7 @@
           <v-navigation-drawer v-model="drawer" absolute temporary app>
             <v-list nav class="pa-0">
               <v-list-item-group v-model="group">
-                <div class="text-h6 white--text px-2 py-4 grey darken-2">
+                <div class="text-h6 white--text px-2 py-4" style="background-color: #2c3e50">
                   Categorías
                 </div>
                 <v-list-item
@@ -26,7 +26,7 @@
             </v-list>
             <v-virtual-scroll height="150" item-height="20"></v-virtual-scroll>
           </v-navigation-drawer>
-          <span class="text-h6 px-2">Productos</span>
+          <span class="color text-h5 font-weight-black px-2">Productos</span>
         </div>
         <v-divider></v-divider>
         <CardProducto :productos="productos" />
@@ -82,9 +82,15 @@ export default {
         return this.$store.getters.getPagina;
       },
       set(newPage) {
-        this.$store.commit("setPagina", newPage);
+        this.$store.commit("SET_PAGINA", newPage);
       },
     },
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.color {
+  color: #2c3e50;
+}
+</style>

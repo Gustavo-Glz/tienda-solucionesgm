@@ -12,70 +12,75 @@ export const state = () => ({
 })
 
 export const mutations = {
-    setDestacados(state, payload) {
+    SET_DESTACADOS(state, payload) {
         state.productosDestacados = payload
 
     },
-    setProductos(state, payload) {
+    SET_PRODUCTOS(state, payload) {
         state.productos = payload
     },
-    setPagina(state, payload) {
+    SET_PAGINA(state, payload) {
         state.pagina = payload
     },
-    setDetallesProducto(state, payload) {
+    SET_DETALLES_PRODUCTO(state, payload) {
         state.detallesProducto = payload
 
-    }
+    },
+    SET_CATEGORIA(state, payload) { 
+        state.categoria = payload
+    },
+   
 }
 
 export const actions = {
     async getDestacados({ commit, state }) {
-        await axios.get(`http://localhost:8000/api/v1.0/destacados/?page=${state.porPaginaDestacados}`)
+        await axios.get(process.env.VUE_APP_API_URLDESTACADOS + `?page=${state.porPaginaDestacados}`)
             .then(res => {
-                return commit('setDestacados', res.data)
+                return commit('SET_DESTACADOS', res.data)
             })
     },
 
     async getProductos({ commit, state }) {
-        await axios.get(`http://localhost:8000/api/v1.0/productos/?page=${state.pagina}`)
+        commit('SET_PAGINA', 1)
+        commit('SET_CATEGORIA', '')
+        await axios.get(process.env.VUE_APP_API_URLPRODUCTOS + `?page=${state.pagina}`)
             .then(res => {
                 state.paginas = Math.ceil(res.data.count / state.porPagina)
-                return commit('setProductos', res.data.results)
+                return commit('SET_PRODUCTOS', res.data.results)
             })
     },
 
     async getSiguiente({ commit, state }) {
         if (state.categoria === '') {
-            await axios.get(`http://localhost:8000/api/v1.0/productos/?page=${state.pagina}`)
+            await axios.get(process.env.VUE_APP_API_URLPRODUCTOS + `?page=${state.pagina}`)
                 .then(res => {
-                    return commit('setProductos', res.data.results)
+                    return commit('SET_PRODUCTOS', res.data.results)
                 })
 
         } else {
-            await axios.get(`http://localhost:8000/api/v1.0/productos/?page=${state.pagina}&categoria=${state.categoria}`)
+            await axios.get(process.env.VUE_APP_API_URLPRODUCTOS + `?page=${state.pagina}&categoria=${state.categoria}`)
                 .then(res => {
-                    return commit('setProductos', res.data.results)
+                    return commit('SET_PRODUCTOS', res.data.results)
                 })
         }
     },
 
     async getCategoria({ commit, state }, payload) {
-        state.pagina = 1
-        state.categoria = payload
-        await axios.get(`http://localhost:8000/api/v1.0/productos/?categoria=${state.categoria}`)
+        commit('SET_PAGINA', 1)
+        commit('SET_CATEGORIA', payload)
+        await axios.get(process.env.VUE_APP_API_URLPRODUCTOS + `?categoria=${state.categoria}`)
             .then(res => {
                 state.paginas = Math.ceil(res.data.count / state.porPagina)
-                console.log(res.data.results)
-                return commit('setProductos', res.data.results)
+                return commit('SET_PRODUCTOS', res.data.results)
             })
     },
 
     async getDetallesProducto({ commit }, payload) {
         const detalles = []
-        await axios.get(`http://localhost:8000/api/v1.0/productos/${payload}`)
+        await axios.get(process.env.VUE_APP_API_URLPRODUCTOS + `${payload}`)
             .then(res => {
                 detalles.push(res.data)
-                return commit('setDetallesProducto', detalles)
+                return commit('SET_DETALLES_PRODUCTO', detalles)
             })
     }
 }

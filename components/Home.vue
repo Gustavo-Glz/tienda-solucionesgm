@@ -25,13 +25,13 @@
       </v-col>
     </v-row>
     <div
-      class="text-h6 blue--text text--darken-4 font-weight-bold my-10"
+      class="color text-h5 font-weight-black my-10"
     >
       Productos destacados
       <CardProducto :productos="productosDestacados"/>
     </div>
     <div
-      class="text-h6 blue--text text--darken-4 font-weight-bold my-10"
+      class="color text-h5 font-weight-black my-10"
     >
       Nuestros servicios
       <CardServicio/>
@@ -54,3 +54,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.color {
+  color: #2c3e50;
+}
+</style>

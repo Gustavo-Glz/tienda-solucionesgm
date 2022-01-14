@@ -1,9 +1,9 @@
 <template>
   <v-container fluid>
-    <div class="text-h4 text-center my-10">Contáctanos</div>
+    <div class="color text-h4 text-center font-weight-bold my-10">Contáctanos</div>
     <v-row>
       <v-col class="pa-0 my-5" cols="12" md="4">
-        <div class="text-h6">Información de contacto</div>
+        <div class="text-h6 color">Información de contacto</div>
         <div class="py-2 d-flex flex-column" elevation="0">
           <div class="d-flex py-2">
             <v-icon color="red darken-2">mdi-map-marker</v-icon>
@@ -22,7 +22,7 @@
             <span>(238) 164 48 93</span>
           </div>
         </div>
-        <div class="text-h6 py-2">Horario de atención</div>
+        <div class="color text-h6 py-2">Horario de atención</div>
         <div class="text-subtitle-1">Lunes a Sábado</div>
         <div class="text-body-2">10:00 AM a 8:30 PM</div>
       </v-col>
@@ -38,3 +38,8 @@
   </v-container>
 </template>
 
+<style lang="scss" scoped>
+.color {
+  color: #2c3e50;
+}
+</style>

@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-toolbar color="#26a96c" flat>
         <div class="d-flex aling-center">
-          <a href="/">
+          <nuxt-link to="/">
             <v-img
               src="/logo.svg"
               contain
@@ -11,7 +11,7 @@
               transition="scale-transition"
             >
             </v-img>
-          </a>
+          </nuxt-link>
         </div>
         <v-spacer></v-spacer>
         <div class="hidden-xs-only">

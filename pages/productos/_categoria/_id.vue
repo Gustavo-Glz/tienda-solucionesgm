@@ -7,12 +7,12 @@ import { mapActions, mapState } from 'vuex'
 export default {
   data() {
     return {
-      id: 0
+      codigo: ''
     }
   },
   created() {
-    this.id = parseInt(this.$route.params.id)
-    this.getDetallesProducto(this.id)
+    this.codigo = parseInt(this.$route.params.codigo)
+    this.getDetallesProducto(this.codigo)
   },
   methods: {
     ...mapActions(['getDetallesProducto']),
