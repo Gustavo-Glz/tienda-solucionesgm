@@ -32,22 +32,22 @@ export default {
         {
           titulo: "Soporte Técnico",
           descripcion: "Mantenimiento de equipo de cómputo, laptops, impresoras entre otros.",
-          imagen: require("@/assets/img/servicios/soporte.png"),
+          imagen: require("@/static/soporte.png"),
         },
         {
           titulo: "Ensamble de Equipos",
           descripcion: "Ensamblamos tu equipo de acuerdo a tus necesidades y presupuesto.",
-          imagen: require("@/assets/img/servicios/ensamble.png"),
+          imagen: require("@/static/ensamble.png"),
         },
         {
           titulo: "Recarga de Cartuchos",
           descripcion: "Servicio de recarga de cartuchos de tinta y tóner con materiales de alta calidad.",
-          imagen: require("@/assets/img/servicios/recarga.png"),
+          imagen: require("@/static/recarga.png"),
         },
         {
           titulo: "Asesoría",
           descripcion: "Analizamos tus necesidades ofreciendo siempre la mejor solución.",
-          imagen: require("@/assets/img/servicios/asesoria.png"),
+          imagen: require("@/static/asesoria.png"),
         },
       ],
     };
